@@ -2,10 +2,17 @@
 
 package clipboard
 
-import "context"
+import (
+	"context"
+	"errors"
+)
+
+var (
+	ErrNoCGOCannotUse = errors.New("clipboard: cannot use when CGO_ENABLED=0")
+)
 
 func initialize() error {
-	panic("clipboard: cannot use when CGO_ENABLED=0")
+	return ErrNoCGOCannotUse
 }
 
 func read(t Format) (buf []byte, err error) {
