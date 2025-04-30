@@ -1,13 +1,13 @@
-module golang.design/x/clipboard
+module github.com/marevers/clipboard
 
-go 1.17
+go 1.24
 
 require (
-	golang.org/x/image v0.6.0
-	golang.org/x/mobile v0.0.0-20230301163155-e0f57694e12c
+	golang.org/x/image v0.26.0
+	golang.org/x/mobile v0.0.0-20250408133729-978277e7eaf7
 )
 
 require (
-	golang.org/x/exp v0.0.0-20190731235908-ec7cb31e5a56 // indirect
-	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/exp/shiny v0.0.0-20250408133849-7e4ce0ab07d0 // indirect
+	golang.org/x/sys v0.32.0 // indirect
 )

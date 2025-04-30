@@ -18,7 +18,7 @@ import (
 	"testing"
 	"time"
 
-	"golang.design/x/clipboard"
+	"github.com/marevers/clipboard"
 )
 
 func init() {
@@ -119,7 +119,7 @@ func TestClipboard(t *testing.T) {
 	})
 
 	t.Run("text", func(t *testing.T) {
-		data := []byte("golang.design/x/clipboard")
+		data := []byte("github.com/marevers/clipboard")
 		clipboard.Write(clipboard.FmtText, data)
 
 		b := clipboard.Read(clipboard.FmtImage)
@@ -150,7 +150,7 @@ func TestClipboardMultipleWrites(t *testing.T) {
 	}
 	chg := clipboard.Write(clipboard.FmtImage, data)
 
-	data = []byte("golang.design/x/clipboard")
+	data = []byte("github.com/marevers/clipboard")
 	clipboard.Write(clipboard.FmtText, data)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
@@ -245,7 +245,7 @@ func TestClipboardWatch(t *testing.T) {
 
 	changed := clipboard.Watch(ctx, clipboard.FmtText)
 
-	want := []byte("golang.design/x/clipboard")
+	want := []byte("github.com/marevers/clipboard")
 	go func(ctx context.Context) {
 		t := time.NewTicker(time.Millisecond * 500)
 		for {
@@ -282,7 +282,7 @@ func TestClipboardWatch(t *testing.T) {
 
 func BenchmarkClipboard(b *testing.B) {
 	b.Run("text", func(b *testing.B) {
-		data := []byte("golang.design/x/clipboard")
+		data := []byte("github.com/marevers/clipboard")
 
 		b.ReportAllocs()
 		b.ResetTimer()
